@@ -1,19 +1,30 @@
-running = True
-grades_dict = {}
+"""
+CPRG216 Assignment 1
+Isaac Jenkins, Jonathan Wall, and John Acilo
+"""
 
 """
 TODO:
-Add error handling if gpa isnt between 0 and 4
-Add comments
-Add different output if the dictionary is empty?
+ADD error handling if gpa isnt between 0 and 4
+ADD different output if the dictionary is empty?
+ADD error handling if the first grade entered is -1 (Set student_gpa to 0 for that student)
+Improve comments?
+Make sure nothing is used past unit 2
 """
+
+# Used to check if the program should continue running
+running = True
+# Initialize the dictionary to store student grades
+grades_dict = {}
 
 
 while running:
+    # Set necessary variables to their starting values
     invalid_input = True
     total_grade = 0
     student_subjects = 0
     subject_grade = 0
+    # Will continue asking for input until a valid yes or no is given
     while invalid_input:
         new_student = input("Would you like to add a new student? y(yes), n(no)\n> ").lower()
         if new_student == "y" or new_student == "yes":
@@ -22,19 +33,25 @@ while running:
         elif new_student == "n" or new_student == "no":
             adding_students = False
             invalid_input = False
+        # If the given options aren't chosen, keep the loop going
         else:
             print("Incorrect Input, please enter y(yes),n(no)")
-            invalid_input = True
 
+    # Will execute if y/yes was chosen
     if adding_students:
         student_name = input("Enter the student's name:\n> ").title()
+        # Continue adding grades until -1 is the input
         while subject_grade != -1: 
             subject_grade = float(input("Enter student GPA for each subject. Enter -1 to stop entering GPA.\n> "))
+            # Only add the grades if they aren't the exit command (-1)
             if subject_grade != -1:
                 total_grade += subject_grade
                 student_subjects += 1
+        # Done adding grades so calculate gpa
         student_gpa = total_grade / student_subjects
+        # Store gpa in dictionary paired with the students name
         grades_dict[student_name] = student_gpa
+    # Will execute when n/no is chosen. The user is done adding students so print the gpa list
     else:
         for name in grades_dict:
             print(name, grades_dict[name])
