@@ -40,9 +40,10 @@ while running:
     # Will execute if y/yes was chosen
     if adding_students:
         student_name = input("Enter the student's name:\n> ").title()
+        print("Enter student GPA for each subject. Enter -1 to stop entering GPA.")
         # Continue adding grades until -1 is the input
         while subject_grade != -1: 
-            subject_grade = float(input("Enter student GPA for each subject. Enter -1 to stop entering GPA.\n> "))
+            subject_grade = float(input(""))
             # Only add the grades if they aren't the exit command (-1)
             if subject_grade != -1:
                 total_grade += subject_grade
