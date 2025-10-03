@@ -51,7 +51,11 @@ while running:
             elif subject_grade != -1:
                 print("This is not a valid input. GPA must be between 0 and 4. Enter -1 to stop entering GPA")
         # Done adding grades so calculate gpa
-        student_gpa = total_grade / student_subjects
+        # Added logic for dividing by 0
+        if student_subjects == 0:
+            student_gpa = 0
+        else:
+            student_gpa = total_grade / student_subjects
         # Store gpa in dictionary paired with the students name
         grades_dict[student_name] = student_gpa
     # Will execute when n/no is chosen. The user is done adding students so print the gpa list
