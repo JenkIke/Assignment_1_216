@@ -60,6 +60,10 @@ while running:
         grades_dict[student_name] = student_gpa
     # Will execute when n/no is chosen. The user is done adding students so print the gpa list
     else:
-        for name in grades_dict:
-            print(name, grades_dict[name])
-        running = False
+        if len(grades_dict) == 0:
+            print("You have added no students. Thank you for using our application.")
+            running = False
+        else:
+            for name in grades_dict:
+                print(name, grades_dict[name])
+            running = False
