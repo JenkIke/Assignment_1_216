@@ -5,7 +5,7 @@ Isaac Jenkins, Jonathan Wall, and John Acilo
 
 """
 TODO:
-ADD different output if the dictionary is empty?
+ADD different output if the dictionary is empty? - Done
 ADD error handling if the first grade entered is -1 (Set student_gpa to 0 for that student) - Done
 Improve comments?
 Make sure nothing is used past unit 2
