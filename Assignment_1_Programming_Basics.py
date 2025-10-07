@@ -5,8 +5,6 @@ Isaac Jenkins, Jonathan Wall, and John Acilo
 
 """
 TODO:
-ADD different output if the dictionary is empty? - Done
-ADD error handling if the first grade entered is -1 (Set student_gpa to 0 for that student) - Done
 Improve comments?
 Make sure nothing is used past unit 2
 """
@@ -16,6 +14,7 @@ running = True
 # Initialize the dictionary to store student grades
 grades_dict = {}
 
+print("Welcome to the Grade Registry Program")
 
 while running:
     # Set necessary variables to their starting values
@@ -64,6 +63,8 @@ while running:
             print("You have added no students. Thank you for using our application.")
             running = False
         else:
+            # Print the results. Print the name in title case and format the GPA to 2 digits after the decimal
+            print("This is the list of students in the system, and their corresponding accumulative GPA")
             for name in grades_dict:
-                print(name, grades_dict[name])
+                print(f"{name.title()} {grades_dict[name]:.2f}")
             running = False
