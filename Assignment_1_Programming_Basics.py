@@ -1,12 +1,11 @@
 """
-CPRG216 Assignment 1
 Isaac Jenkins, Jonathan Wall, and John Acilo
-"""
-
-"""
-TODO:
-Improve comments?
-Make sure nothing is used past unit 2
+CPRG216-I Assignment 1
+Oct 17, 2025
+This is a grade registry program
+Inputs: Student names and grades
+Processing: Calculates the overall GPA for each student given the course grades
+Outputs: Cumulative GPA for each student
 """
 
 # Used to check if the program should continue running
@@ -19,8 +18,7 @@ print("Welcome to the Grade Registry Program")
 while running:
     # Set necessary variables to their starting values
     invalid_input = True
-    total_grade = 0
-    student_subjects = 0
+    student_grades = []
     subject_grade = 0
     # Will continue asking for input until a valid yes or no is given
     while invalid_input:
@@ -44,19 +42,17 @@ while running:
             subject_grade = float(input("> "))
             # Subject grades must be between 0 and 4 to be valid
             if 0 <= subject_grade <= 4:
-                total_grade += subject_grade
-                student_subjects += 1
+                student_grades.append(subject_grade)
             # Anything else that isnt -1 is invalid.
             elif subject_grade != -1:
                 print("This is not a valid input. GPA must be between 0 and 4. Enter -1 to stop entering GPA")
         # Done adding grades so calculate gpa
         # Added logic for dividing by 0
-        if student_subjects == 0:
-            student_gpa = 0
+        if len(student_grades) == 0:
+            grades_dict[student_name] = 0
         else:
-            student_gpa = total_grade / student_subjects
+            grades_dict[student_name] = sum(student_grades) / len(student_grades)
         # Store gpa in dictionary paired with the students name
-        grades_dict[student_name] = student_gpa
     # Will execute when n/no is chosen. The user is done adding students so print the gpa list
     else:
         if len(grades_dict) == 0:
