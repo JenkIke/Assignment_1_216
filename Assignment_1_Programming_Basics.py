@@ -39,7 +39,7 @@ while running:
         print("Enter student GPA for each subject. Enter -1 to stop entering GPA.")
         # Continue adding grades until -1 is the input
         while subject_grade != -1: 
-            subject_grade = float(input("> "))
+            subject_grade = float(input("> ")) 
             # Subject grades must be between 0 and 4 to be valid
             if 0 <= subject_grade <= 4:
                 student_grades.append(subject_grade)
